@@ -42,6 +42,20 @@ class Launch extends Component {
               )
               if (error) console.log(error)
 
+              let launchSuccessful = 'No'
+
+              switch (data.launch.launch_success) {
+                case true:
+                  launchSuccessful = 'Yes'
+                  break;
+                case false:
+                  launchSuccessful = 'No'
+                  break;
+                default:
+                  launchSuccessful = 'Unknown'
+                  break;
+              }
+
               console.log(data)
               return (
                 <div>
@@ -63,9 +77,10 @@ class Launch extends Component {
                       Launch Successful:&nbsp;
                       <span className={classNames({
                         'text-success': data.launch.launch_success,
-                        'text-danger': !data.launch.launch_success
+                        'text-danger': data.launch.launch_success === false,
+                        'text-warning': data.launch.launch_success === null
                       })}>
-                        {data.launch.launch_success ? 'Yes' : 'No'}
+                        {launchSuccessful}
                       </span>
                     </li>
                   </ul>
