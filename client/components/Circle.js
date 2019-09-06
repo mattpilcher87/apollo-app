@@ -17,8 +17,8 @@ class Circle extends PureComponent {
     }
 
     return (
-      <svg height='80' width='80'>
-        <circle cx='40' cy='40' r='35' fill={fillColour} />
+      <svg height='60' width='60'>
+        <circle cx='30' cy='30' r='20' fill={fillColour} />
       </svg>
     )
   }

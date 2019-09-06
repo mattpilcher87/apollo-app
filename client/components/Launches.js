@@ -20,12 +20,16 @@ class Launches extends Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Launches</h1>
+        <h1 className='mt-4'>Launches</h1>
 
         <Query query={LAUNCHES_QUERY}>
           {
             ({ loading, error, data }) => {
-              if (loading) return <Loader />
+              if (loading) return (
+                <div className='text-center'>
+                  <Loader />
+                </div>
+              )
               if (error) console.log(error)
 
               console.log(data)
